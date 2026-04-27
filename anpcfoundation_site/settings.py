@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ===============================
 # 🔐 SEGURIDAD
 # ===============================
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-=&v649!)^a&2)g98^i!po54r64y3sv@&1lp&qlnwgzflrmsueu'
 
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
@@ -122,7 +122,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'laurafreedomway@gmail.com'
+EMAIL_HOST_PASSWORD = 'rjay vowf dppn gdge'
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
