@@ -1,0 +1,490 @@
+{% extends 'donations/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO -->
+<section id="inicio" class="relative text-white bg-gray-900">
+    <img src="{% static 'images/hero.png' %}" 
+         class="absolute inset-0 w-full h-full object-cover opacity-40">
+
+    <div class="relative max-w-3xl px-6 py-32 mx-auto text-center">
+        <h1 class="text-4xl font-bold leading-tight md:text-5xl">
+            Transformando comunidades, impactando naciones
+        </h1>
+
+        <p class="mt-6 text-gray-200">
+            Presencia en 11 países fortaleciendo familias, educación y desarrollo sostenible.
+        </p>
+
+        <a href="#donar"
+           class="inline-block px-8 py-3 mt-8 font-semibold text-black transition rounded-lg bg-orange-400 hover:bg-orange-500">
+           Donar ahora
+        </a>
+    </div>
+</section>
+
+<!-- SOBRE -->
+<section id="nosotros" class="px-6 py-20 bg-[#f5f1ee]">
+    <div class="grid items-center max-w-6xl gap-10 mx-auto md:grid-cols-2">
+
+        <div class="relative">
+            <img src="{% static 'images/about.png' %}" 
+                 class="object-cover w-full shadow-lg rounded-2xl">
+
+            <div class="absolute px-6 py-3 text-sm text-white bg-orange-400 shadow-lg -bottom-6 -right-6 rounded-xl">
+                Presencia en 11 países
+            </div>
+        </div>
+
+        <div>
+            <p class="mb-2 text-sm font-semibold tracking-wide text-red-500 uppercase">
+                Sobre nosotros
+            </p>
+
+            <h2 class="mb-4 text-3xl font-bold leading-tight md:text-4xl">
+                Impactando comunidades con propósito y visión global
+            </h2>
+
+            <p class="mb-4 leading-relaxed text-gray-600">
+                ANPC Foundation es una organización misionera y comunitaria comprometida con el desarrollo integral 
+                de individuos, familias y comunidades vulnerables.
+            </p>
+
+            <p class="mb-6 leading-relaxed text-gray-600">
+                Trabajamos local e internacionalmente, promoviendo transformación social a través de educación, 
+                ayuda humanitaria, orientación migratoria y programas sostenibles que generan oportunidades reales.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span>Educación integral</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span>Apoyo comunitario</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-yellow-400 rounded-full"></span>
+                    <span>Impacto internacional</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-pink-500 rounded-full"></span>
+                    <span>Desarrollo sostenible</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISIÓN Y VISIÓN (FIX GRID) -->
+<section class="px-6 py-20 bg-[#ebe3dd]">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid gap-8 md:grid-cols-2">
+
+            <div class="p-8 transition bg-white shadow rounded-xl hover:shadow-lg">
+                <h3 class="mb-4 text-2xl font-semibold text-orange-400">Misión</h3>
+                <p class="text-gray-600">
+                    Brindar herramientas educativas, comunitarias y de orientación integral que fortalezcan a individuos, 
+                    familias y comunidades vulnerables, promoviendo su desarrollo humano, social y económico de forma sostenible.
+                </p>
+            </div>
+
+            <div class="p-8 transition bg-white shadow rounded-xl hover:shadow-lg">
+                <h3 class="mb-4 text-2xl font-semibold text-orange-400">Visión</h3>
+                <p class="text-gray-600">
+                    Ser una fundación misionera reconocida internacionalmente por su impacto en educación, ayuda humanitaria 
+                    y desarrollo comunitario, formando líderes y fortaleciendo comunidades en múltiples naciones.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- IMPACTO -->
+<section id="impacto" class="relative py-24 overflow-hidden text-center text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#3b0a0a] via-[#5a1e1e] to-[#2b0f0f]"></div>
+    <div class="absolute inset-0 bg-black/20"></div>
+
+    <div class="relative z-10">
+        <h2 class="mb-12 text-3xl font-bold tracking-wide md:text-4xl">
+            Nuestro impacto
+        </h2>
+
+        <div class="flex flex-wrap justify-center gap-8">
+
+            <div class="px-10 py-8 transition border shadow-lg bg-white/5 backdrop-blur-sm rounded-2xl border-white/10 hover:scale-105">
+                <p class="text-5xl font-bold text-orange-300 counter" data-target="2000">0</p>
+                <p class="mt-2 text-white/70">Familias impactadas</p>
+            </div>
+
+            <div class="px-10 py-8 transition border shadow-lg bg-white/5 backdrop-blur-sm rounded-2xl border-white/10 hover:scale-105">
+                <p class="text-5xl font-bold text-yellow-300 counter" data-target="11">0</p>
+                <p class="mt-2 text-white/70">Países</p>
+            </div>
+
+            <div class="px-10 py-8 transition border shadow-lg bg-white/5 backdrop-blur-sm rounded-2xl border-white/10 hover:scale-105">
+                <p class="text-5xl font-bold text-orange-200 counter" data-target="50">0</p>
+                <p class="mt-2 text-white/70">Proyectos</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROGRAMAS -->
+<section id="programas" class="px-6 py-20 bg-[#f5f1ee]">
+    <h2 class="mb-12 text-3xl font-semibold text-center">Nuestros programas</h2>
+
+    <div class="max-w-5xl mx-auto space-y-6">
+
+        <!-- EDUCACIÓN -->
+        <div class="overflow-hidden bg-white border border-gray-200 shadow rounded-xl">
+            <button onclick="toggleProgram('edu')" 
+                class="flex items-center justify-between w-full p-6 transition hover:bg-gray-50">
+                <span class="text-lg font-semibold">Educación</span>
+                <span id="icon-edu">+</span>
+            </button>
+
+            <div id="edu" class="hidden px-6 pb-6 space-y-6">
+
+                <ul class="grid gap-4 text-sm md:grid-cols-2">
+                    <li class="p-3 bg-gray-100 rounded">Clases de inglés</li>
+                    <li class="p-3 bg-gray-100 rounded">Learn & Earn</li>
+                    <li class="p-3 bg-gray-100 rounded">Liderazgo</li>
+                    <li class="p-3 bg-gray-100 rounded">Emprendimiento</li>
+                </ul>
+
+                <!-- GALERÍA PEQUEÑA -->
+                <div class="columns-2 md:columns-3 gap-3">
+                    <img src="{% static 'images/educacion.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g1.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g2.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso1.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso2.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso3.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso4.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso5.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso6.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso7.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso8.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/cursos/curso9.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- AYUDA -->
+        <!-- AYUDA -->
+        <div class="overflow-hidden bg-white border border-gray-200 shadow rounded-xl">
+            <button onclick="toggleProgram('help')" 
+                class="flex items-center justify-between w-full p-6 transition hover:bg-gray-50">
+                <span class="text-lg font-semibold">Ayuda humanitaria</span>
+                <span id="icon-help">+</span>
+            </button>
+
+            <div id="help" class="hidden px-6 pb-6 space-y-6">
+
+                <div class="columns-2 md:columns-3 gap-3">
+                    <img src="{% static 'images/ayudaHu.jpg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/ayudaHu1.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g3.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g4.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- EMPRENDIMIENTO -->
+        <div class="overflow-hidden bg-white border border-gray-200 shadow rounded-xl">
+            <button onclick="toggleProgram('emp')" 
+                class="flex items-center justify-between w-full p-6 transition hover:bg-gray-50">
+                <span class="text-lg font-semibold">Emprendimiento</span>
+                <span id="icon-emp">+</span>
+            </button>
+
+            <div id="emp" class="hidden px-6 pb-6 space-y-6">
+
+                <ul class="grid gap-4 text-sm md:grid-cols-2">
+                    <li class="p-3 bg-gray-100 rounded">Microempresas</li>
+                    <li class="p-3 bg-gray-100 rounded">Capacitación</li>
+                </ul>
+
+                <div class="columns-2 md:columns-3 gap-3">
+                    <img src="{% static 'images/emprendimiento.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g5.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g6.png' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g15.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g16.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g17.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g18.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g19.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+                    <img src="{% static 'images/g20.jpeg' %}" class="mb-3 rounded-lg shadow break-inside-avoid">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- GALERÍA -->
+<section id="galeria" class="py-20 px-6 text-center bg-[#f0e7e2]">
+    <h2 class="text-3xl font-semibold mb-6">Nuestra labor</h2>
+
+    <!-- ===== SECCIÓN PAÍSES ===== -->
+    <h3 class="text-xl font-semibold mb-4">Impacto por países</h3>
+
+    <!-- FILTROS -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+
+        <button onclick="filterGallery('all')"
+            class="filter-btn active px-4 py-2 rounded-full border text-sm transition">
+            Todos
+        </button>
+
+        <button onclick="filterGallery('colombia',this)" class="filter-btn colombia px-4 py-2 rounded-full text-sm">Colombia</button>
+
+        <button onclick="filterGallery('usa',this)" class="filter-btn usa px-4 py-2 rounded-full text-sm">Estados Unidos</button>
+
+        <button onclick="filterGallery('argentina',this)" class="filter-btn argentina px-4 py-2 rounded-full text-sm">Argentina</button>
+
+        <button onclick="filterGallery('peru',this)" class="filter-btn peru px-4 py-2 rounded-full text-sm">Perú</button>
+
+        <button onclick="filterGallery('rd',this)" class="filter-btn rd px-4 py-2 rounded-full text-sm">R. Dominicana</button>
+
+        <button onclick="filterGallery('salvador',this)" class="filter-btn salvador px-4 py-2 rounded-full text-sm">El Salvador</button>
+
+        <button onclick="filterGallery('venezuela',this)" class="filter-btn venezuela px-4 py-2 rounded-full text-sm">Venezuela</button>
+
+        <button onclick="filterGallery('africa', this)" class="filter-btn africa px-4 py-2 rounded-full text-sm">África</button>
+
+    </div>
+
+    <!-- GALERÍA PAÍSES -->
+    <div class="columns-2 sm:columns-3 md:columns-4 gap-3 max-w-6xl mx-auto mb-16" id="gallery">
+
+        <!-- COLOMBIA -->
+        <img src="{% static 'images/paises/colombia.jpeg' %}" class="gallery-item colombia mb-3 rounded-lg shadow hover:scale-105 transition duration-300">
+
+        <!-- USA -->
+        <img src="{% static 'images/paises/ny1.jpeg' %}" class="gallery-item usa mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/paises/ny2.jpeg' %}" class="gallery-item usa mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <!-- ARGENTINA -->
+        <img src="{% static 'images/paises/argentina.jpeg' %}" class="gallery-item argentina mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/paises/argentina1.jpeg' %}" class="gallery-item argentina mb-3 rounded-lg shadow hover:scale-105 transition">
+       
+
+        <!-- PERÚ -->
+        <img src="{% static 'images/paises/peru.jpeg' %}" class="gallery-item peru mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <!-- RD -->
+        <img src="{% static 'images/paises/rd.jpeg' %}" class="gallery-item rd mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <!-- SALVADOR -->
+        <img src="{% static 'images/paises/salvador.jpeg' %}" class="gallery-item salvador mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/paises/salvador1.jpeg' %}" class="gallery-item salvador mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <!-- VENEZUELA -->
+        <img src="{% static 'images/paises/venezuela.jpeg' %}" class="gallery-item venezuela mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <!-- AFRICA -->
+        <img src="{% static 'images/paises/africa.jpeg' %}" class="gallery-item africa mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/paises/africa1.jpeg' %}" class="gallery-item africa mb-3 rounded-lg shadow hover:scale-105 transition">
+
+    </div>
+
+    <!-- ===== SECCIÓN GENERAL (SIN FILTRO) ===== -->
+    <h3 class="text-xl font-semibold mb-6">Actividades y comunidad</h3>
+
+    <div class="columns-2 sm:columns-3 md:columns-5 gap-3 max-w-6xl mx-auto">
+
+        <img src="{% static 'images/g2.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g3.png' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g4.png' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g5.png' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g6.png' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <img src="{% static 'images/g7.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g8.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g9.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g10.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g11.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <img src="{% static 'images/g12.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g13.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g14.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g15.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g16.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+
+        <img src="{% static 'images/g17.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g18.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g19.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g20.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g21.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+        <img src="{% static 'images/g22.jpeg' %}" class="mb-3 rounded-lg shadow hover:scale-105 transition">
+
+    </div>
+
+</section>
+
+<!-- RECONOCIMIENTOS -->
+<section class="px-6 py-24 text-center bg-[#f5f1ee]">
+    <div class="max-w-6xl mx-auto">
+
+        <h2 class="mb-6 text-3xl font-bold text-gray-800 md:text-4xl">
+            Liderazgo reconocido internacionalmente
+        </h2>
+
+        <p class="max-w-2xl mx-auto mb-14 text-gray-600">
+            La directora de ANPC Foundation ha sido distinguida por su liderazgo, 
+            impacto social y compromiso con el desarrollo de comunidades a nivel internacional.
+        </p>
+
+        <div class="grid gap-10 md:grid-cols-2">
+
+            <!-- PREMIO 1 -->
+            <div class="relative overflow-hidden bg-white shadow-lg group rounded-2xl">
+
+                <img src="{% static 'images/reconocimientos/reconocimiento.jpeg' %}" 
+                     class="object-cover w-full h-full transition duration-500 group-hover:scale-105">
+
+                <!-- overlay -->
+                <div class="absolute inset-0 flex items-end p-6 transition bg-black/40 opacity-0 group-hover:opacity-100">
+                    <p class="text-sm text-left text-white">
+                        Invitación especial como líder destacada en el evento 
+                        <strong>Liderazgo Gladiador Latino</strong>.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- PREMIO 2 -->
+            <div class="relative overflow-hidden bg-white shadow-lg group rounded-2xl">
+
+                <img src="{% static 'images/reconocimientos/reconocimiento2.jpeg' %}" 
+                     class="object-cover w-full h-full transition duration-500 group-hover:scale-105">
+
+                <!-- overlay -->
+                <div class="absolute inset-0 flex items-end p-6 transition bg-black/40 opacity-0 group-hover:opacity-100">
+                    <p class="text-sm text-left text-white">
+                        Reconocimiento como <strong>Líder Gladiador 2024</strong>.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DONACIÓN -->
+<section id="donar" class="py-24 px-6 text-white relative overflow-hidden">
+
+    <!-- FONDO -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#3b0a0a] via-[#5a1e1e] to-[#2b0f0f]"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- TEXTO -->
+        <div class="text-left fade-up">
+            <p class="text-sm uppercase tracking-wide text-orange-300 font-semibold mb-2">
+                Donaciones
+            </p>
+
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                Tu ayuda puede transformar vidas
+            </h2>
+
+            <p class="text-white/80 mb-6">
+                Cada aporte permite llevar educación, apoyo comunitario y ayuda humanitaria a familias en situación vulnerable en más de 11 países.
+            </p>
+
+            <div class="space-y-3 text-sm">
+
+                <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 bg-orange-300 rounded-full"></span>
+                    <span>Impacto directo en comunidades</span>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 bg-yellow-300 rounded-full"></span>
+                    <span>Transparencia en el uso de fondos</span>
+                </div>
+
+                <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 bg-red-300 rounded-full"></span>
+                    <span>Proyectos sostenibles</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl">
+
+            <h3 class="text-xl font-semibold mb-6 text-center">
+                Realizar donación
+            </h3>
+
+            <div class="bg-white/20 p-6 rounded-xl mb-6 text-center">
+                <h3 class="text-lg font-semibold mb-2">Datos para donar por Zelle</h3>
+
+                <p class="text-sm">
+                    Realiza tu donación a:
+                </p>
+
+                <p class="mt-2 font-semibold text-orange-300 text-lg">
+                    Foundationanpc@gmail.com
+                </p>
+
+                <p class="text-xs mt-3 text-white/70">
+                    Luego sube el comprobante.
+                </p>
+            </div>
+
+            <form method="POST" enctype="multipart/form-data" class="space-y-4">
+                {% csrf_token %}
+
+                <input type="text" name="nombre" placeholder="Nombre completo"
+                    class="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60">
+
+                <input type="email" name="email" placeholder="Correo electrónico"
+                    class="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60">
+
+                <input type="number" name="monto" placeholder="Monto donado"
+                    class="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60">
+
+                <input type="text" name="referencia" placeholder="Referencia (opcional)"
+                    class="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/60">
+
+                <div class="border-2 border-dashed border-white/30 p-4 rounded-lg text-center">
+                    <p class="text-sm mb-2">Sube tu comprobante</p>
+                    <input type="file" name="comprobante" accept="image/*" class="w-full text-sm">
+                </div>
+
+                <button class="w-full bg-orange-400 text-black py-3 rounded-lg hover:bg-orange-500 transition font-semibold">
+                    Enviar donación
+                </button>
+
+                <p class="text-xs text-center text-white/60 mt-2">
+                    🔒 Información protegida
+                </p>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

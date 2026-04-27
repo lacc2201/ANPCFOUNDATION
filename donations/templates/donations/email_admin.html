@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body style="margin:0; padding:0; background:#f4f4f4; font-family:Arial, sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+
+<table width="520" cellpadding="0" cellspacing="0" style="background:white; margin:30px auto; border-radius:12px; overflow:hidden;">
+
+    <!-- HEADER -->
+    <tr>
+        <td style="background:linear-gradient(135deg,#3b0a0a,#5a1e1e,#2b0f0f); color:white; padding:20px; text-align:center;">
+            <h2 style="margin:0;">Nueva donación recibida</h2>
+        </td>
+    </tr>
+
+    <!-- CONTENT -->
+    <tr>
+        <td style="padding:25px; font-size:14px; color:#333;">
+
+            <p><strong>Nombre:</strong> {{ nombre }}</p>
+            <p><strong>Correo:</strong> {{ correo }}</p>
+            <p><strong>Monto:</strong> ${{ monto }}</p>
+            <p><strong>Referencia:</strong> {{ referencia }}</p>
+
+            <p style="margin-top:20px; color:#666;">
+                Esta donación está pendiente de verificación.
+            </p>
+
+            <!-- BOTÓN -->
+            <div style="text-align:center; margin-top:25px;">
+                <a href="{{ domain }}aprobar-donacion/{{ referencia }}/"
+                   style="display:inline-block;
+                          padding:12px 20px;
+                          background:#10b981;
+                          color:white;
+                          text-decoration:none;
+                          border-radius:8px;
+                          font-weight:bold;">
+                    ✅ Confirmar donación
+                </a>
+            </div>
+
+        </td>
+    </tr>
+
+    <!-- FOOTER -->
+    <tr>
+        <td style="background:#111; color:#aaa; text-align:center; padding:12px; font-size:12px;">
+            ANPC Foundation
+        </td>
+    </tr>
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

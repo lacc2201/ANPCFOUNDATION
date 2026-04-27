@@ -1,0 +1,468 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ANPC Foundation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- ANIMACIONES BASE -->
+    <style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .filter-btn {
+            border-color: #e5e7eb;
+            color: #374151;
+        }
+
+        .filter-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* ACTIVO BASE (por si es "Todos") */
+        .filter-btn.active {
+            background: #333;
+            color: white;
+            border: none;
+        }
+
+        /* ACTIVO POR PAÍS (MISMO QUE HOVER) */
+        .filter-btn.colombia.active {
+            background: linear-gradient(90deg, #fcd116, #003893, #ce1126);
+            color: white;
+        }
+
+        .filter-btn.usa.active {
+            background: linear-gradient(90deg, #3c3b6e, #ffffff, #b22234);
+            color: black;
+        }
+
+        .filter-btn.argentina.active {
+            background: linear-gradient(90deg, #74acdf, #ffffff, #74acdf);
+            color: black;
+        }
+
+        .filter-btn.peru.active {
+            background: linear-gradient(90deg, #d91023, #ffffff, #d91023);
+            color: black;
+        }
+
+        .filter-btn.rd.active {
+            background: linear-gradient(90deg, #002d62, #ffffff, #ce1126);
+            color: black;
+        }
+
+        .filter-btn.salvador.active {
+            background: linear-gradient(90deg, #0047ab, #ffffff, #0047ab);
+            color: black;
+        }
+
+        .filter-btn.venezuela.active {
+            background: linear-gradient(90deg, #f4d900, #0033a0, #cf142b);
+            color: white;
+        }
+
+        .filter-btn.africa.active {
+            background: linear-gradient(90deg, #ffce00, #000000, #007a4d);
+            color: white;
+        }
+        .gallery-item {
+            width: 100%;
+            max-height: 180px; /* 🔥 más pequeño = menos cansancio */
+            object-fit: cover;
+
+            margin-bottom: 10px;
+
+            border-radius: 12px;
+
+            break-inside: avoid;
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+            filter: brightness(0.96);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.015);
+            filter: brightness(1.05);
+        }
+        .nav-link .line {
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover .line {
+            width: 100%;
+        }
+
+        .active-link span {
+            font-weight: 600;
+        }
+
+        .active-link .line {
+            width: 100%;
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.4s ease;
+        }
+        .section-soft {
+            background: linear-gradient(to bottom, #ffffff, #f9fafb);
+        }
+
+        .section-alt {
+            background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+        }
+        /* COLORES POR PAÍS */
+        /* BOTONES BASE */
+        .filter-btn {
+            border: 1px solid #d1d5db;
+            color: #374151;
+            transition: all 0.3s ease;
+        }
+
+        /* COLORES POR PAÍS */
+        .filter-btn.colombia:hover {
+            background: linear-gradient(90deg, #fcd116, #003893, #ce1126);
+            color: white;
+        }
+
+        .filter-btn.usa:hover {
+            background: linear-gradient(90deg, #3c3b6e, #ffffff, #b22234);
+            color: black;
+        }
+
+        .filter-btn.argentina:hover {
+            background: linear-gradient(90deg, #74acdf, #ffffff, #74acdf);
+            color: black;
+        }
+
+        .filter-btn.peru:hover {
+            background: linear-gradient(90deg, #d91023, #ffffff, #d91023);
+            color: black;
+        }
+
+        .filter-btn.rd:hover {
+            background: linear-gradient(90deg, #002d62, #ffffff, #ce1126);
+            color: black;
+        }
+
+        .filter-btn.salvador:hover {
+            background: linear-gradient(90deg, #0047ab, #ffffff, #0047ab);
+            color: black;
+        }
+
+        .filter-btn.venezuela:hover {
+            background: linear-gradient(90deg, #f4d900, #0033a0, #cf142b);
+            color: white;
+        }
+
+        .filter-btn.africa:hover {
+            background: linear-gradient(90deg, #ffce00, #000000, #007a4d);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-800 font-sans">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="flex justify-between items-center px-6 md:px-12 py-4 border-b bg-white/80 backdrop-blur sticky top-0 z-50 transition-all duration-300">
+
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3 group cursor-pointer">
+        <img src="{% static 'images/logo.png' %}" 
+             class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+
+        <span class="font-semibold text-lg tracking-wide">
+            ANPC Foundation
+        </span>
+    </div>
+
+    <!-- NAV -->
+    <div class="hidden md:flex items-center space-x-8 text-sm">
+
+        <a href="#inicio" class="nav-link relative group">
+            <span class="transition text-gray-700 group-hover:text-orange-500">Inicio</span>
+            <span class="line"></span>
+        </a>
+
+        <a href="#nosotros" class="nav-link relative group">
+            <span class="transition text-gray-700 group-hover:text-orange-500">Nosotros</span>
+            <span class="line"></span>
+        </a>
+
+        <a href="#programas" class="nav-link relative group">
+            <span class="transition text-gray-700 group-hover:text-orange-500">Programas</span>
+            <span class="line"></span>
+        </a>
+
+        <a href="#galeria" class="nav-link relative group">
+            <span class="transition text-gray-700 group-hover:text-orange-500">Galería</span>
+            <span class="line"></span>
+        </a>
+
+        <a href="#contacto" class="nav-link relative group">
+            <span class="transition text-gray-700 group-hover:text-orange-500">Contacto</span>
+            <span class="line"></span>
+        </a>
+
+        <!-- DONAR -->
+        <a href="#donar"
+           class="bg-orange-400 text-black px-5 py-2 rounded-lg font-semibold shadow-md hover:bg-orange-500 hover:shadow-lg transition-all duration-300">
+            Donar
+        </a>
+
+    </div>
+
+</nav>
+
+{% if messages %}
+    <div class="fixed top-20 right-6 z-50 space-y-2">
+        {% for message in messages %}
+            <div class="px-5 py-3 rounded-lg shadow-lg text-white
+                {% if message.tags == 'success' %} bg-green-500 {% endif %}
+                {% if message.tags == 'error' %} bg-red-500 {% endif %}
+                animate-fade-in">
+                
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+
+<!-- FOOTER -->
+<footer id="contacto" class="relative mt-20 text-white fade-up overflow-hidden">
+
+    <!-- FONDO SUAVE -->
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-900 via-[#1f2937] to-gray-900"></div>
+    <div class="absolute inset-0 bg-[url('/static/images/texture.png')] opacity-5"></div>
+    <!-- ⚠️ Si no tienes textura, igual funciona perfecto sin esta línea -->
+
+    <div class="relative max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8 text-sm">
+
+        <!-- INFO + LOGO -->
+        <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+                <img src="{% static 'images/logo.png' %}" 
+                     class="h-8 w-auto opacity-90">
+
+                <h3 class="font-semibold">ANPC Foundation</h3>
+            </div>
+
+            <p class="text-gray-400 leading-relaxed">
+                Transformando vidas a través de educación y ayuda humanitaria.
+            </p>
+        </div>
+
+        <!-- CONTACTO -->
+        <div>
+            <h3 class="font-semibold mb-2">Contacto</h3>
+            <p class="text-gray-400">+1 516-412-2769</p>
+            <p class="text-gray-400 mt-1">Foundationanpc@gmail.com</p>
+        </div>
+
+        <!-- REDES -->
+        <div>
+            <h3 class="font-semibold mb-2">Síguenos</h3>
+
+            <a href="https://www.instagram.com/anpc_foundation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+               target="_blank"
+               class="flex items-center space-x-2 text-gray-400 hover:text-orange-400 transition group">
+
+                <i class="ri-instagram-line text-lg transition group-hover:scale-110"></i>
+                <span class="group-hover:underline">@anpc_foundation</span>
+
+            </a>
+        </div>
+
+    </div>
+
+    <!-- línea -->
+    <div class="relative border-t border-white/10 max-w-6xl mx-auto"></div>
+
+    <!-- COPYRIGHT -->
+    <div class="relative text-center text-gray-500 text-xs py-5">
+        © 2023 ANPC Foundation
+    </div>
+
+</footer>
+
+<!-- JS PRO -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 🔹 NAVBAR SCROLL EFFECT
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add("shadow-md", "bg-white");
+        } else {
+            navbar.classList.remove("shadow-md", "bg-white");
+        }
+    });
+
+    // 🔹 COUNTER
+    const counters = document.querySelectorAll('.counter');
+    let started = false;
+
+    const runCounter = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+
+            const speed = target / 50;
+
+            const updateCount = () => {
+                count += speed;
+
+                if (count < target) {
+                    counter.innerText = Math.floor(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            };
+
+            updateCount();
+        });
+    };
+
+    const observerCounter = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !started) {
+                runCounter();
+                started = true;
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const impacto = document.querySelector('#impacto');
+    if (impacto) observerCounter.observe(impacto);
+
+
+    // 🔹 SCROLL REVEAL ANIMATION
+    const elements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+
+});
+
+function toggleProgram(id) {
+    const section = document.getElementById(id);
+    const icon = document.getElementById("icon-" + id);
+
+    section.classList.toggle("hidden");
+
+    if (section.classList.contains("hidden")) {
+        icon.innerText = "+";
+    } else {
+        icon.innerText = "−";
+    }
+}
+
+function filterGallery(country) {
+    const items = document.querySelectorAll('.gallery-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // activar botón
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    items.forEach(item => {
+        if (country === 'all') {
+            item.style.display = 'block';
+        } else {
+            if (item.classList.contains(country)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        }
+    });
+}
+// scroll suave
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 80, // espacio navbar
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+
+// active link al hacer scroll
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active-link");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active-link");
+        }
+    });
+
+});
+</script>
+
+</body>
+</html>
